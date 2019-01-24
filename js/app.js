@@ -62,6 +62,19 @@ new Vue({
         }
     },
 
+    computed: {
+        cartTotal: function() {
+            var total = 0;
+            this.cart.items.forEach(function(item) {
+                total += item.quantity * item.product.price;
+            });
+            return total;
+        },
+        taxAmount: function() {
+            return ((this.cartTotal * 10) / 100);
+        }
+    },
+
     filters: {
         currency: function(value) {
             var formatter = Intl.NumberFormat('en-US', {

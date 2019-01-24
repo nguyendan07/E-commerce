@@ -15,8 +15,8 @@
                 <a href="#"><strong>E-commerce Inc.</strong></a>
 
                 <div class="text-right pull-right cart-info">
-                    <span class="stats">X items in cart, totalling $Y</span>
-                    <button class="btn btn-primary">View Cart</button>
+                    <span class="stats">{{ cart.items.length }} <template v-if="cart.items.length == 1">item</template><template v-else="cart.items.length == 1">items</template> in cart, totalling {{ cartTotal | currency }}</span>
+                    <button class="btn btn-primary" @click="isShowingCart = true">View Cart</button>
                 </div>
             </nav>
 
